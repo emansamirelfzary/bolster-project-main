@@ -1,0 +1,51 @@
+<section class="forms-padding">
+  <div class="container">
+    <div class="row g-5 me-0">
+      <div class="col-md-6">
+        <div>
+          <form class="form" [formGroup]="signInForm" (ngSubmit)="handleSignIn(signInForm)">
+            <div class="title d-flex justify-content-center align-items-center bg-light py-3">
+              <span><i class="fa-solid fa-square"></i></span>
+              <h3 class="h5 mb-0 ms-2">Login</h3>
+            </div>
+            <div class="pe-3">
+              <p class="mt-2 text-danger text-center">{{signInError}}</p>
+            <div class="mt-3">
+              <label for="email" class="text-uppercase mb-2">user email</label>
+              <input type="email" id="email" class="form-control rounded-0 border-0 bg-light" placeholder="Enter your email" formControlName="email">
+              <div *ngIf="email?.errors && email?.touched" class="alert alert-danger rounded-0 mt-1">
+                <p *ngIf="email?.getError('required')" class="mb-0 text-capitalize">user email is required</p>
+                <p *ngIf="email?.getError('email')" class="mb-0 text-capitalize">please enter valid email</p>
+              </div>
+              </div>
+            <div class="mt-3">
+              <label for="password" class="text-uppercase mb-2">password</label>
+              <input type="password" id="password" class="form-control rounded-0 border-0 bg-light" placeholder="Enter your password" formControlName="password">
+              <div *ngIf="password?.errors && password?.touched" class="alert alert-danger rounded-0 mt-1">
+                <p *ngIf="password?.getError('required')" class="mb-0 text-capitalize">user password is required</p>
+
+              </div>
+              </div>
+              <button class="btn btn-dark w-100 mt-4 rounded-0" type="submit" [disabled]="signInForm.invalid"> <span *ngIf="isLoading"><i class="fas fa-spinner fa-pulse"></i></span>
+                Sign In</button>
+                </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="creation">
+          <div class="title d-flex justify-content-center align-items-center bg-light py-3">
+            <span><i class="fa-solid fa-square"></i></span>
+            <h3 class="h5 mb-0 ms-2">New Customer</h3>
+          </div>
+          <div class="mt-4">
+            <h6 class="fw-bold">Create an Account</h6>
+            <p class="mb-3 text-muted">Sign up for a free account at our store. Registration is quick and easy. It allows you to be able to order from our shop. To start shopping click register.</p>
+            <a class="btn bg-white  border text-uppercase mt-3 rounded-0" routerLink="/signup">
+              create an account</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

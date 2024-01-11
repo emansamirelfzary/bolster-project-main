@@ -1,0 +1,11 @@
+.name{
+  bottom: -2rem;
+  transition: .5s;
+  opacity: 0;
+}
+
+.category:hover .name{
+  bottom: 2rem;
+  opacity: 1;
+
+}

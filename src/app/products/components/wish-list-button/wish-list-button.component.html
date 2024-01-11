@@ -1,0 +1,8 @@
+<button class="btn wish-icon" *ngIf="!wishListProducts.includes(product.id)" (click)="addProductToWishlist(product.id)" ><span><i class="fa-regular fa-heart"></i></span>
+
+  <span class="ms-2" *ngIf="productDetails">Add To Wishlist</span>
+  </button>
+<button class="btn wish-icon" *ngIf="wishListProducts.includes(product.id)" (click)="removeProductFromWishlist(product.id)">
+  <span><i class="fa-solid fa-heart"></i></span>
+  <span class="ms-2" *ngIf="productDetails">Remove From Wishlist</span>
+</button>

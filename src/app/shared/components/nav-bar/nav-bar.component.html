@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg bg-white py-3 px-lg-5 fixed-top shadow">
+  <div class="container-fluid">
+    <a class="navbar-brand fs-6" href="#"><img src="./assets/images/logo.png" alt="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+        <li class="nav-item p-2">
+          <a class="nav-link position-relative p-0" aria-current="page" routerLink="home" routerLinkActive="active">Home</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link position-relative p-0" routerLink="products"  routerLinkActive="active">Shop</a>
+        </li>
+        <li class="nav-item p-2">
+          <a class="nav-link position-relative p-0" routerLink="categories" routerLinkActive="active">Categories</a>
+        </li>
+      </ul>
+      <a class="d-flex me-5 ms-2 align-items-center text-black" (click)="search()">
+        <input class="form-control me-2 border-0 bg-transparent px-0" type="text" placeholder="Search" [(ngModel)]="searchKey" (keydown.enter)="search()">
+        <i class="fa-solid fa-magnifying-glass cursor"></i>
+      </a>
+    </div>
+     <ul class="navbar-nav flex-row user">
+      <li class="nav-item p-2 text-center" *ngIf="isLoggedIn">
+      <a class="nav-link position-relative p-0" routerLink="cart" routerLinkActive="active">Cart <span>({{cartNum}})</span> <i class="fa-solid fa-cart-shopping ms-2"></i>
+      </a></li>
+      <li class="nav-item p-2 text-center" *ngIf="isLoggedIn">
+      <a class="nav-link mx-2 position-relative p-0" routerLink="wishlist" routerLinkActive="active">Wishlist <span>({{wishlistNum}})</span> <i class="fa-solid fa-heart ms-2"></i>
+      </a></li>
+      <li class="nav-item p-2 text-center">
+      <a class="nav-link position-relative p-0" routerLink="signin" routerLinkActive="active" *ngIf="!isLoggedIn">Log in <i class="fa-solid fa-user ms-2"></i></a></li>
+      <li class="nav-item p-2 text-center">
+      <a class="nav-link position-relative p-0 cursor" *ngIf="isLoggedIn" (click)="handleLogOut()">Log out <i class="fa-solid fa-user"></i></a></li>
+      <div class="alert position-absolute bg-black text-white text-black py-3 fw-bold add-msg" *ngIf="cartMsg"><p class="mb-0">{{cartMsg}}</p></div>
+      <div class="alert position-absolute bg-black text-white text-black py-3 fw-bold add-msg" *ngIf="wishlistMsg"><p class="mb-0">{{wishlistMsg}}</p></div>
+      </ul>
+  </div>
+</nav>
+

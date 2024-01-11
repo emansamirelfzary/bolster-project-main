@@ -1,0 +1,54 @@
+<section class="forms-padding">
+  <div class="container">
+    <form class="mx-auto form"  [formGroup]="signUpForm" (ngSubmit)="handleSignUp(signUpForm)">
+      <div class="title d-flex justify-content-center align-items-center bg-light py-3">
+        <span><i class="fa-solid fa-square"></i></span>
+        <h3 class="h4 mb-0 ms-2">Create an Account</h3>
+      </div>
+      <p class="text-danger mb-0 mt-2 text-center">{{signUpError}}</p>
+      <div class="mt-3">
+        <label for="name" class="text-uppercase mb-2">name</label>
+        <input type="text" id="name" class="form-control rounded-0 border-0 bg-light" placeholder="Enter your name" formControlName="name">
+        <div *ngIf="name?.errors && name?.touched" class="alert alert-danger mt-1 rounded-0">
+          <p *ngIf="name?.getError('required')" class="mb-0 text-capitalize">name is required</p>
+          <p *ngIf="name?.getError('minlength')" class="mb-0 text-capitalize">name min Length is 3 characters</p>
+          <p *ngIf="name?.getError('maxlength')" class="mb-0 text-capitalize">name max length is 10 characters</p>
+        </div>
+      </div>
+      <div class="mt-3">
+        <label for="email" class="text-uppercase mb-2">email</label>
+        <input type="email" id="email" class="form-control rounded-0 border-0 bg-light" placeholder="Enter your email" formControlName="email">
+        <div *ngIf="email?.errors && email?.touched" class="alert alert-danger mt-1 rounded-0">
+          <p *ngIf="email?.getError('required')" class="mb-0 text-capitalize">email is required</p>
+          <p *ngIf="email?.getError('email')" class="mb-0 text-capitalize">please enter vaild email</p>
+        </div>
+      </div>
+      <div class="mt-3">
+        <label for="password" class="text-uppercase mb-2">password</label>
+        <input type="password" id="password" class="form-control rounded-0 border-0 bg-light" placeholder="Enter your password" formControlName="password">
+        <div *ngIf="password?.errors && password?.touched" class="alert alert-danger rounded-0 mt-1">
+          <p *ngIf="password?.getError('required')" class="mb-0 text-capitalize">password is required</p>
+          <p *ngIf="password?.getError('pattern')" class="mb-0 text-capitalize">Password must contain more than 8 characters,<br> 1 uppercase letter and 1 special character</p>
+        </div>
+      </div>
+      <div class="mt-3">
+        <label for="rePassword" class="text-uppercase mb-2">repassword</label>
+        <input type="password" id="rePassword" class="form-control rounded-0 border-0 bg-light" placeholder="Enter repassword" formControlName="rePassword">
+        <div *ngIf="repassword?.errors && repassword?.touched" class="alert alert-danger rounded-0 mt-1">
+          <p *ngIf="repassword?.getError('required')" class="mb-0 text-capitalize">repassword is required</p>
+          <p *ngIf="repassword?.getError('misMatch')" class="mb-0 text-capitalize">Passowrd and Repassword Dosn't Match</p>
+        </div>
+      </div>
+      <div class="mt-3">
+        <label for="phone" class="text-uppercase mb-2">phone number</label>
+        <input type="tel" id="phone" class="form-control rounded-0 border-0 bg-light" placeholder="Enter your phone number" formControlName="phone">
+        <div *ngIf="phone?.errors && phone?.touched" class="alert alert-danger rounded-0 mt-1">
+          <p *ngIf="phone?.getError('required')" class="mb-0 text-capitalize">phone is required</p>
+          <p *ngIf="phone?.getError('pattern')" class="mb-0 text-capitalize">please enter valid phone number</p>
+        </div>
+      </div>
+      <button [disabled]="signUpForm.invalid" class="btn btn-dark w-100 mt-4 rounded-0" type="submit"> <span *ngIf="isLoading"><i class="fas fa-spinner fa-pulse"></i></span>
+        Sign Up</button>
+    </form>
+  </div>
+</section>

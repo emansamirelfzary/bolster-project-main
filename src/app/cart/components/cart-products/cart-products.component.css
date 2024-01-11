@@ -1,0 +1,47 @@
+
+thead, tbody tr:last-child{
+  border-block: 1px solid black !important;
+}
+
+tbody{
+  vertical-align: middle;
+}
+.cate{
+  font-size: .8rem;
+}
+.update-count span:hover{
+  color: black !important;
+}
+
+.remove:hover{
+  color: red;
+}
+
+.btn{
+  transition: .5s;
+}
+
+.btn:hover{
+  background-color: black !important;
+  color: white !important;
+}
+
+@media screen and (max-width:768px) {
+  table th, table td{
+    font-size: .8rem;
+  }
+  .name{
+    display: none;
+  }
+  .name-img{
+    display: block !important;
+  }
+  .product-img{
+        width: 70px !important;
+
+  }
+  .empty-img{
+    width: 100%;
+  }
+
+}

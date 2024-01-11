@@ -1,0 +1,19 @@
+.product-details .compare{
+  width: calc(50% - .5rem);
+}
+
+
+.product-details .compare:hover {
+  background-color: black !important;
+  color: white;
+}
+
+
+@media screen and (max-width:900px) {
+
+  .product-details .product-img{
+    height: auto !important;
+  
+  }
+  
+}

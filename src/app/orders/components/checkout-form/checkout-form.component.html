@@ -1,0 +1,141 @@
+<section class="sec-padding">
+  <app-page-title></app-page-title>
+  <div class="container">
+    <form [formGroup]="shippingForm"
+          (ngSubmit)="handlecheckout()">
+    <div class="row pt-5">
+      <div class="col-md-6">
+        <div>
+          <h3 class="h5 mb-4">Billing Details</h3>
+          
+            <div class="mb-3">
+              <label for="shippingAddress" class="mb-1 p-1"
+                >Shipping Address <span class="text-danger">*</span></label
+              >
+              <input
+                type="text"
+                id="shippingAddress"
+                class="form-control mb-1 rounded-0"
+                formControlName="details"
+              />
+              <div
+                *ngIf="details?.errors && details?.touched"
+                class="alert alert-danger p-2 rounded-0"
+              >
+                <p *ngIf="details?.getError('required')" class="mb-0">
+                  Shipping Address is Required
+                </p>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="mb-1 p-1">Phone Number <span class="text-danger">*</span></label>
+              <input
+                type="tel"
+                id="phone"
+                class="form-control mb-1 rounded-0"
+                formControlName="phone"
+              />
+              <div
+                *ngIf="phone?.errors && phone?.touched"
+                class="alert alert-danger p-2 rounded-0"
+              >
+                <p *ngIf="phone?.getError('required')" class="mb-0">
+                  Phone Number is Required
+                </p>
+                <p *ngIf="phone?.getError('pattern')" class="mb-0">
+                  Please Enter Valid Phone Number
+                </p>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="city" class="mb-1 p-1">City <span class="text-danger">*</span></label>
+              <input
+                type="text"
+                id="city"
+                class="form-control mb-1 rounded-0"
+                formControlName="city"
+              />
+              <div
+                *ngIf="city?.errors && city?.touched"
+                class="alert alert-danger p-2 rounded-0"
+              >
+                <p *ngIf="city?.getError('required')" class="mb-0">
+                  City is Required
+                </p>
+              </div>
+            </div>
+
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="pt-4">
+        <h3 class="h5 mb-4">Your Order</h3>
+        <table class="table">
+          <thead>
+            <tr>
+            <th>PRODUCT NAME</th>
+            <th>TOTAL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let cartProduct of cartProducts">
+              <td class="text-muted">{{cartProduct.product.title.split(" ").slice(0,3).join(" ")}}</td>
+              <td class="text-muted">{{cartProduct.price}} EGP</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Cart Subtotal</td>
+              <td>{{cartTotalPrice}}EGP</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Shipping</td>
+              <td>50EGP</td>
+            </tr>
+            <tr>
+              <td class="fw-bold">Order Total</td>
+              <td>{{cartTotalPrice+50}}EGP</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="form-check mt-5">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="visa"
+            name="paymethod"
+            formControlName="paymentMethod"
+            value="visa"
+            checked
+          />
+          <label class="form-check-label fw-bold mb-3" for="visa">
+            Creadit or Depit Card
+          </label>
+        </div>
+        <div class="form-check mb-4">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="cash"
+            name="paymethod"
+            formControlName="paymentMethod"
+            value="cash"
+            
+          />
+          <label class="form-check-label fw-bold" for="cash">
+            Cash On Delivery
+          </label>
+        </div>
+        <button
+          class="btn btn-dark rounded-0 w-100"
+          type="submit"
+          [disabled]="shippingForm.invalid"
+        >
+          <i class="fas fa-spin fa-spinner" *ngIf="isLoading"></i> Place
+          Order
+        </button>
+        </div>
+      </div>
+    </div>
+    </form>
+  </div>
+</section>

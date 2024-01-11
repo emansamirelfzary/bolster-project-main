@@ -1,0 +1,18 @@
+.box span{
+  font-size: .9rem;
+}
+
+.box img{
+  transition: .5s;
+}
+.box:hover img{
+  scale: 1.1;
+}
+
+.box .btn{
+  transition: .5s;
+}
+.box:hover .btn{
+background-color: black !important;
+color: white !important;
+}

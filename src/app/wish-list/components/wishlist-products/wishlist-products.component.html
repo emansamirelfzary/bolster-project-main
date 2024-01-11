@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="py-5" >
+    <table class="table" *ngIf="wishList; else emptyWishlist">
+    <thead>
+      <tr class=" text-uppercase">
+      <th class="py-3">Product</th>
+      <th class="py-3">name </th>
+      <th class="py-3">price</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let wishListProduct of wishListProducts">
+        <td><a [routerLink]="['/productdetails',wishListProduct.id]">
+          <img [src]="wishListProduct.imageCover" alt="product" width="100" class="product-img">
+          <p class="text-muted fw-bold d-none name-img">{{wishListProduct.title.split(" ").slice(0,3).join(" ")}}</p>
+        </a></td>
+        <td class="name"><a [routerLink]="['/productdetails',wishListProduct.id]"><p class="text-muted fw-bold">{{wishListProduct.title.split(" ").slice(0,3).join(" ")}}</p></a>
+          <p class="cate"><span class="text-muted fw-bold">category:</span>{{wishListProduct.category.name}}</p>
+        </td>
+        <td class="text-muted fw-bold">
+          {{wishListProduct.price}} EGP
+        </td>
+        <td class="wish"><app-add-button [product]="wishListProduct"></app-add-button></td>
+        <td><span class="cursor remove" (click)="removeProductFromWishlist(wishListProduct.id)"><i class="fa-solid fa-trash-can"></i></span></td>
+      </tr>
+    </tbody>
+    </table>
+    <ng-template #emptyWishlist>
+      <div class="text-center">
+      <img src="../assets/images/empty-wishlist.png" alt="empty wishlist" class="empty-img">
+      <p class="fs-3 text-muted text-uppercase">your wishlist is empty</p>
+      <a class="btn btn-dark d-block w-25 mx-auto mt-2 rounded-0 py-2" routerLink="/products">go shop</a>
+      </div>
+    </ng-template>
+  </div>
+</div>

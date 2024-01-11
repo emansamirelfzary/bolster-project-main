@@ -1,0 +1,36 @@
+.slide1,.slide2,.slide3{
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
+
+
+.slide1
+{
+  background:url(../../../../assets/images/slide1.jpg);
+  background-position: center;
+}
+
+.slide2
+{
+  background:url(../../../../assets/images/slide2.jpg);
+  background-position: center;
+}
+.slide3
+{
+  background:url(../../../../assets/images/slide3.jpg);
+  background-position: center;
+}
+
+.text{
+    min-height: 650px;
+}
+
+.text .btn{
+  transition: .5s;
+}
+
+.text .btn:hover{
+  color: black !important;
+  background-color: white !important;
+}

@@ -1,0 +1,43 @@
+
+.nav-item .nav-link::after{
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  width: 0;
+  background-color: black;
+  height: 1px;
+  left: 0;
+  transition: .5s;
+}
+.nav-item:hover .nav-link::after{
+width: 100%;
+}
+.nav-item .active::after {
+  width: 100%;
+
+}
+
+.add-msg{
+  width: 350px;
+  font-size: .9rem;
+  top: 60px;
+}
+
+
+
+@media screen and (max-width:991px) {
+  .user{
+    width: 100%;
+    justify-content: center;
+  }
+  
+}
+
+@media screen and (max-width:768px) {
+ .add-msg {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%);
+ }
+  
+}

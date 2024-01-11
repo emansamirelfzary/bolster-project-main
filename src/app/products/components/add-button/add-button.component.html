@@ -1,0 +1,3 @@
+<button class="btn btn-light border rounded-0 border-1 border-black me-4 add" *ngIf="!cartProducts.includes(product.id)" (click)="addProductToCart(product.id)">Add To Cart</button>
+<a class="btn btn-dark border rounded-0 border-1 border-black me-4 add" *ngIf="cartProducts.includes(product.id)" routerLink="/cart">Add Already!</a>
+

@@ -1,0 +1,16 @@
+
+.facility-icon{
+  width: fit-content;
+}
+.facility-icon i {
+  font-size: 1.5rem;
+  transition: .5s;
+}
+.facility-icon span{
+  height:4rem ;
+  width: 4rem;
+  line-height: 2.2;
+ }
+.facility-box:hover i{
+  transform: rotateY(180deg);
+}

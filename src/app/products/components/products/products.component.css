@@ -1,0 +1,32 @@
+.products{
+  padding-block: 50px 100px;
+}
+.product-img img{
+  transition: .5s;
+}
+
+.product:hover .product-img img{
+  scale: 1.1;
+
+}
+
+.details{
+  transition: .5s;
+}
+
+.details:hover{
+  color: white !important;
+  background-color: black !important;
+
+}
+
+.notfound-bg{
+  background-color:#f1f1f1 ;
+}
+
+@media screen and (max-width:768px) {
+  .noproduct-found img {
+    width: 100%;
+  }
+  
+}

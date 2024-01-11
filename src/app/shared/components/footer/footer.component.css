@@ -1,0 +1,28 @@
+.links h3{
+  font-size: 1.2rem;
+}
+
+.links h3::after{
+  content: "";
+  position: absolute;
+  background-color: #ebebeb;
+  width: 2.5rem;
+  height: 2px;
+  left: 0;
+  bottom: 0px;
+
+}
+.links li, .text {
+  font-size: 14px;
+}
+
+.links li a{
+  transition: .5s;
+}
+
+.links li:hover a{
+  padding-left: .5rem;
+}
+
+
+
