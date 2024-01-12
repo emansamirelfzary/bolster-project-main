@@ -16,6 +16,7 @@ constructor(private _productService:ProductsService, private _activatedRoute:Act
 allProducts:Product[]=[]
 searchKey: string="";
 searchResult: Product[]=[];
+productList:boolean=true
 
 ngOnInit() {
   this._activatedRoute.queryParams.subscribe(params => {
@@ -29,6 +30,9 @@ this.allProducts=response.data
 product.title.toLowerCase().includes(this.searchKey.toLowerCase()));
 this.allProducts=this.searchResult
 
+if(this.allProducts.length==0){
+  this.productList=false
+}
       console.log(this.searchResult)
         }});
 

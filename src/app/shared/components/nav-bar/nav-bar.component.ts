@@ -25,23 +25,25 @@ ngOnInit(): void {
   this._authService.userData.subscribe((response)=>{
     if (this._authService.userData.getValue()) {
       this.isLoggedIn= true
+      this._cartService.getCart().subscribe({
+        next:(response)=>{
+          this.cartNum=response.numOfCartItems
+        }
+      });
+      this._wishlistService.getWishlistProducts().subscribe({
+        next:(response)=>{
+      this.wishlistNum=response.count
+    }
+  })
     }
     else{
       this.isLoggedIn=false
     }
   })
 
-  this._cartService.getCart().subscribe({
-    next:(response)=>{
-      this.cartNum=response.numOfCartItems
-    }
-  })
 
-  this._wishlistService.getWishlistProducts().subscribe({
-    next:(response)=>{
-      this.wishlistNum=response.data.length
-    }
-  })
+
+
 
 this._cartService.cartMsg.subscribe({
   next:(response)=>{

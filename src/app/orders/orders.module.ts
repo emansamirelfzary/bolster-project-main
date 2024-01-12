@@ -4,6 +4,7 @@ import { CheckoutFormComponent } from './components/checkout-form/checkout-form.
 import { SharedModule } from '../shared/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OrderComponent } from './components/order/order.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -15,7 +16,8 @@ import { OrderComponent } from './components/order/order.component';
   imports: [
     CommonModule,
     SharedModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class OrdersModule { }
